@@ -1,8 +1,9 @@
-import { createContext } from "react";
+import { createContext, useContext, useReducer } from "react";
 import React from 'react'
 import { randBoolean, randFullName, randImg, randNumber, randUuid, seed } from "@ngneat/falso";
+import cartReducer from "./Reducers";
 
-const cart = createContext()
+export const cart = createContext()
 seed(100)
 
 function Context({ children }) {
@@ -18,9 +19,15 @@ function Context({ children }) {
     }))
     console.log(data)
 
+    const [state, dispatch] = useReducer(cartReducer, {
+        products: data,
+        cart: []
+    })
+
     return (
-        <cart.Provider>{children}</cart.Provider>
+        <cart.Provider value={{ state, dispatch }}>{children}</cart.Provider>
     )
 }
 
 export default Context
+
