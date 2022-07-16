@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
-import { cart } from '../context/Context'
+import { Cart } from '../context/Context'
 import './styles.css'
 import SingleProduct from './SingleProduct'
 import Filters from './Filters'
 
 const Home = () => {
 
-    const { state: { products } } = useContext(cart)
+    const { state: { products } } = useContext(Cart)
 
     return (
         <div className='home'>

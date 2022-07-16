@@ -1,10 +1,14 @@
 import React from 'react'
+import { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import './styles.css'
+import Rating from './Rating'
 
 const Filters = () => {
+    const [rate, SetRate] = React.useState(3)
     return (
         <div className="filters">
-            <span className="title">Filter Products</span>
+            <span className="title"> <h5>Filter Products</h5> </span>
             <span>
                 <Form.Check
                     inline
@@ -41,7 +45,11 @@ const Filters = () => {
                     id={`inline-4`}
                 />
             </span>
-            <Button variant="light">
+            <span>
+                <label style={{ paddingRight: 10 }}>Rating: </label>
+                <Rating rate={rate} style={{ cursor: "pointer" }} onClick={(val) => SetRate(val)}></Rating>
+            </span>
+            <Button className="clear-btn" >
                 Clear Filters
             </Button>
         </div>
