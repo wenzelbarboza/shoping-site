@@ -5,7 +5,8 @@ import { Badge, Container, NavDropdown, FormControl, Nav, Navbar } from 'react-b
 import { Cart } from '../context/Context';
 import { AiFillDelete } from "react-icons/ai"
 import { BsCartDashFill } from "react-icons/bs"
-
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const Header = () => {
     const { state: { cart }, dispatch } = useContext(Cart)
@@ -45,8 +46,8 @@ const Header = () => {
                                     </span>
                                 </NavDropdown.Item>
                             )) :
-                            (<NavDropdown.Item href="">cart is empty</NavDropdown.Item>)}
-
+                            (<NavDropdown.Item >cart is empty</NavDropdown.Item>)}
+                        <Link to='/cartPage'><Button style={{ width: "95%", margin: "0 5px" }} variant="primary">cart page</Button></Link>
                     </NavDropdown>
                 </Nav>
             </Container>
