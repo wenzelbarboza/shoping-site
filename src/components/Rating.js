@@ -1,4 +1,5 @@
 import React from 'react'
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
 const Rating = ({ rate, style, onClick }) => {
     return (
@@ -6,7 +7,7 @@ const Rating = ({ rate, style, onClick }) => {
             {[...Array(5)].map((_, i) => {
                 return (
                     <span key={i} style={style} onClick={() => onClick(i + 1)}>
-                        {rate > i ? <span>1</span> : <span>0</span>}
+                        {rate > i ? <AiFillStar /> : <AiOutlineStar />}
                     </span>
                 )
             })}

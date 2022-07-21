@@ -9,13 +9,14 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 const Header = () => {
-    const { state: { cart }, dispatch } = useContext(Cart)
+    const { state: { cart }, dispatch, productFilterDispatch } = useContext(Cart)
     return (
         <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
             <Container>
                 <Navbar.Brand>
                     <Link to='./'><Button >Home page</Button></Link>
                 </Navbar.Brand>
+                {/* search */}
                 <Navbar.Text className="search">
                     <FormControl
                         style={{ width: 500 }}
@@ -23,8 +24,13 @@ const Header = () => {
                         placeholder="Search a product..."
                         className="m-auto"
                         aria-label="Search"
+                        onChange={(event) => (productFilterDispatch({
+                            type: "FILTER_BY_SEARCH",
+                            payload: event.target.value
+                        }))}
                     />
                 </Navbar.Text>
+                {/* dropdown */}
                 <Nav>
                     <NavDropdown style={{ fontSize: "25px" }} title={<Badge><BsCartDashFill style={{ fontSize: "30px", paddingRight: "5px" }} /> {cart.length}</Badge>} id="basic-nav-dropdown" align="end" onSelect={e => e.stopPropagation()} >
                         {cart.length > 0 ?
