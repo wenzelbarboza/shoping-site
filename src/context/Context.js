@@ -18,7 +18,6 @@ function Context({ children }) {
         fastDelivery: faker.datatype.boolean(),
         ratings: faker.datatype.number({ max: 5 }),
     }))
-    console.log(data)
 
     const [state, dispatch] = useReducer(cartReducer, {
         products: data,

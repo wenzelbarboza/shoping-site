@@ -14,6 +14,7 @@ const Header = () => {
         <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
             <Container>
                 <Navbar.Brand>
+                    <Link to='./'><Button >Home page</Button></Link>
                 </Navbar.Brand>
                 <Navbar.Text className="search">
                     <FormControl
@@ -25,7 +26,7 @@ const Header = () => {
                     />
                 </Navbar.Text>
                 <Nav>
-                    <NavDropdown title={<Badge><BsCartDashFill /> {cart.length}</Badge>} id="basic-nav-dropdown" align="end" flip onSelect={e => e.stopPropagation()} >
+                    <NavDropdown style={{ fontSize: "25px" }} title={<Badge><BsCartDashFill style={{ fontSize: "30px", paddingRight: "5px" }} /> {cart.length}</Badge>} id="basic-nav-dropdown" align="end" onSelect={e => e.stopPropagation()} >
                         {cart.length > 0 ?
                             cart.map((ele) => (
                                 <NavDropdown.Item href="">
