@@ -73,7 +73,7 @@ const CartPage = () => {
             <div className='filters summary' >
                 <div className='title'>Subtotal: {cart.length} (items)</div>
                 <span style={{ fontWeight: 700, fontSize: 20 }}>total:{total}</span>
-                <Button disable={cart.length === 0}>checkout</Button>
+                <Button className='btn-custom' disable={cart.length === 0}>checkout</Button>
             </div>
         </div>
     )

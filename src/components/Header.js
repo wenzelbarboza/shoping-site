@@ -7,14 +7,15 @@ import { AiFillDelete } from "react-icons/ai"
 import { BsCartDashFill } from "react-icons/bs"
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import "./styles.css"
 
 const Header = () => {
     const { state: { cart }, dispatch, productFilterDispatch } = useContext(Cart)
     return (
-        <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
+        <Navbar className='navBar' style={{ height: 80 }}>
             <Container>
                 <Navbar.Brand>
-                    <Link to='./'><Button >Home page</Button></Link>
+                    <Link to='./'><Button className='btn-custom' >Home page</Button></Link>
                 </Navbar.Brand>
                 {/* search */}
                 <Navbar.Text className="search">
@@ -32,10 +33,10 @@ const Header = () => {
                 </Navbar.Text>
                 {/* dropdown */}
                 <Nav>
-                    <NavDropdown style={{ fontSize: "25px" }} title={<Badge><BsCartDashFill style={{ fontSize: "30px", paddingRight: "5px" }} /> {cart.length}</Badge>} id="basic-nav-dropdown" align="end" onSelect={e => e.stopPropagation()} >
+                    <NavDropdown style={{ fontSize: "25px" }} title={<Badge style={{ backgroundColor: "#557a95" }} ><BsCartDashFill style={{ fontSize: "30px", paddingRight: "5px" }} /> {cart.length}</Badge>} id="basic-nav-dropdown" align="end" onSelect={e => e.stopPropagation()} >
                         {cart.length > 0 ?
                             cart.map((ele) => (
-                                <NavDropdown.Item href="">
+                                <NavDropdown.Item style={{ backgroundColor: "#eeeeee" }} href="">
                                     <span className='cartitem' id={ele.id}>
                                         <img className='cartItemImg' src={ele.image} alt={ele.name} />
                                         <div className='cartItemDetail'>
@@ -54,7 +55,7 @@ const Header = () => {
                                 </NavDropdown.Item>
                             )) :
                             (<NavDropdown.Item >cart is empty</NavDropdown.Item>)}
-                        <Link to='/cartPage'><Button style={{ width: "95%", margin: "0 5px" }} variant="primary">cart page</Button></Link>
+                        <Link to='/cartPage'><Button className='btn-custom' style={{ width: "95%", margin: "0 5px" }} variant="primary">cart page</Button></Link>
                     </NavDropdown>
                 </Nav>
             </Container>

@@ -11,7 +11,7 @@ const SingleProduct = ({ prod }) => {
 
     return (
         <div className="products">
-            <Card>
+            <Card style={{ backgroundColor: "#b0a295" }}>
                 <Card.Img variant="top" src={prod.image} alt={prod.name} />
                 <Card.Body>
                     <Card.Title>{prod.name}</Card.Title>
@@ -23,11 +23,11 @@ const SingleProduct = ({ prod }) => {
                         <Rating rate={prod.ratings} />
                     </Card.Subtitle>
                     {cart.some((ele) => ele.id === prod.id) ?
-                        (<Button variant="danger" onClick={() => dispatch({
+                        (<Button variant="danger" className='btn-custom-red' onClick={() => dispatch({
                             type: "REMOVE_FROM_CART",
                             payload: prod
                         })}>Remove from cart</Button>) :
-                        (<Button variant="primary" onClick={() => dispatch({
+                        (<Button variant="primary" className='btn-custom' onClick={() => dispatch({
                             type: "ADD_TO_CART",
                             payload: prod
                         })} disabled={!prod.inStock}>{!prod.inStock ? "out of stock" : "add to cart"}</Button>)}

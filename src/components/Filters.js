@@ -84,7 +84,7 @@ const Filters = () => {
                     payload: val
                 })}></Rating>
             </span>
-            <Button className="clear-btn" onClick={() => (productFilterDispatch({
+            <Button className="clear-btn btn-custom" onClick={() => (productFilterDispatch({
                 type: "CLEAR_FILTER"
             }))}>
                 Clear Filters

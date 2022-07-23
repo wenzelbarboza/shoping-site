@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, HashRouter } from 'react-router-dom';
 import './App.css';
 
 import CartPage from './components/CartPage';
@@ -9,9 +9,9 @@ import Home from './components/Home';
 function App() {
   return (
 
-    <div>
+    <div className='homeBackground'>
 
-      <BrowserRouter>
+      <HashRouter>
         <Header />
         <Routes>
           <Route path="/" element={
@@ -19,7 +19,7 @@ function App() {
           } exact />
           <Route path="/CartPage" element={<CartPage />} exact />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
