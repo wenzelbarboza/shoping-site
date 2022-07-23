@@ -25,7 +25,7 @@ function Context({ children }) {
     })
 
     const [productFilterState, productFilterDispatch] = useReducer(productFilterReducer, {
-        byStock: false,
+        byStock: true,
         byFastDelivery: false,
         byRating: 0,
         searchQuery: "",
