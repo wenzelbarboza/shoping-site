@@ -13,7 +13,7 @@ function Context({ children }) {
         id: faker.datatype.uuid(),
         name: faker.commerce.productName(),
         price: faker.commerce.price(),
-        image: faker.image.image(10000, 10000, true),
+        image: faker.image.business(10000, 10000, true),
         inStock: faker.datatype.number({ max: 5 }),
         fastDelivery: faker.datatype.boolean(),
         ratings: faker.datatype.number({ max: 5 }),

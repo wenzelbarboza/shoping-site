@@ -11,7 +11,7 @@ function App() {
 
     <div className='homeBackground'>
 
-      <HashRouter>
+      <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={
@@ -19,7 +19,7 @@ function App() {
           } exact />
           <Route path="/CartPage" element={<CartPage />} exact />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }
